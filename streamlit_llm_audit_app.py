@@ -95,7 +95,7 @@ def discover_urls(start_url: str, max_pages: int = 20) -> list[str]:
 
 def embed_pages(urls: list[str], embedder: SentenceTransformer):
     texts = [fetch_text(u) for u in urls]
-    st.info("Embedding pages … this may take a minute for larger sites.")
+    st.info("Embedding pages… this may take a minute for larger sites.")
     embeddings = embedder.encode(texts, batch_size=16, show_progress_bar=True, normalize_embeddings=True)
     return texts, embeddings
 
@@ -112,7 +112,7 @@ def cluster_embeddings(embeddings: np.ndarray, n_clusters: int = 5):
 
 def schema_score(html: str) -> float:
     """Binary 1/0 if Schema.org JSON‑LD present."""
-    if re.search(r"@context".*?"schema\.org", html, re.I | re.S):
+    if re.search(r'"@context".*?"schema\\.org"', html, re.I | re.S):
         return 1.0
     return 0.0
 
@@ -179,7 +179,7 @@ def main():
         run_button = st.button("Run audit ▶️")
 
     if run_button and domain:
-        with st.spinner("Crawling site …"):
+        with st.spinner("Crawling site…"):
             urls = discover_urls(domain, max_pages)
         st.success(f"Discovered {len(urls)} pages in the same domain.")
 
