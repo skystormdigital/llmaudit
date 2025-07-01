@@ -1,9 +1,8 @@
-streamlit
-requests
-BeautifulSoup
-beautifulsoup4
-trafilatura
-sentence-transformers
-scikit-learn
-pandas
-numpy
+streamlit>=1.35.0
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+trafilatura>=1.6.1
+sentence-transformers>=2.5.1
+scikit-learn>=1.4.2
+pandas>=2.2.2
+numpy>=1.26.4
